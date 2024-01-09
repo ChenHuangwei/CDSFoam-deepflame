@@ -4,6 +4,7 @@ set -x
 
 #(wmake libso BCs && wmake)
 cd ./fluxSchemes
+wclean
 wmake
 cd ..
 wmake
