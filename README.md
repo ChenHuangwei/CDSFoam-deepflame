@@ -23,6 +23,8 @@
 6. ***Oblique detonation***
 
    ![ODW](https://github.com/ChenHuangwei/CDSFoam-deepflame/blob/master/Figs/ODW.png)
+5. ***twoD_detonation_oran6670***
 
+   ![twoD_detonation](https://github.com/ChenHuangwei/CDSFoam-deepflame/blob/master/example/twoD_detonation_6670/FIG.png)
 ## Citation
 >**Chen H.W, Zhao M.H, Qiu H, Zhu Y.J. Implementation and verification of an OpenFOAM solver for gas-drople two-phase detonation combustion[J].Physics of Fluids,2024,36(8),-086133.**
