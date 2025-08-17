@@ -8,7 +8,7 @@
 ## How to install
 1. Install [OpenFOAM-7](https://openfoam.org/version/7/)
 2. Install [deepflame-1.6](https://github.com/deepflameCFD/deepflame-dev)
-3. Compile dfCDSFoam:```./Allwmake```
+3. Compile CDSFoam:```./Allwmake```
 
 ## Derived cases
 1. ***Riemann problem***
