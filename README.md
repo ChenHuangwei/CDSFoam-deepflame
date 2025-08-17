@@ -1,4 +1,4 @@
-# CDSFoam: A detonation solver based on deepflame
+# CDSFoam_V0.2: A detonation solver based on deepflame
 1. The fluxschemes is form [blastFoam](https://github.com/synthetik-technologies/blastfoam) and [detonationFoam](https://github.com/JieSun-pku/detonationFoam)
 2. The HLLC-LM scheme is introduced
 3. The explicit third-order SSP Runge-Kutta method for time integration
@@ -7,7 +7,7 @@
 
 ## How to install
 1. Install [OpenFOAM-7](https://openfoam.org/version/7/)
-2. Install [deepflame](https://github.com/deepflameCFD/deepflame-dev)
+2. Install [deepflame-1.6](https://github.com/deepflameCFD/deepflame-dev)
 3. Compile dfCDSFoam:```./Allwmake```
 
 ## Derived cases
