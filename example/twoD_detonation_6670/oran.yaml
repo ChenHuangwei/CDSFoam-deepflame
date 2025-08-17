@@ -1,0 +1,296 @@
+description: |-
+  H2-O2-AR Reaction Mechnism from: Weak and Strong Ignition.
+  II. Sensitivity of the Hydrogen-Oxyen System
+  Oran and Boris, Combustion and Flame, 48: 149-161, (1982)
+  Third-Body enhancements following Peters and Rogg.
+
+generator: ck2yaml
+input-files: [chem.inp, therm.dat, tran.dat]
+cantera-version: 3.0.1
+date: Mon, 14 Oct 2024 16:45:27 +0800
+
+units: {length: cm, time: s, quantity: mol, activation-energy: cal/mol}
+
+phases:
+- name: gas
+  thermo: ideal-gas
+  elements: [H, O, Ar]
+  species: [O2, H2O, H, O, OH, H2, HO2, H2O2, AR]
+  kinetics: gas
+  transport: mixture-averaged
+  state: {T: 300.0, P: 1 atm}
+
+species:
+- name: O2
+  composition: {O: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [200.0, 1000.0, 8000.0]
+    data:
+    - [3.212936, 1.127486e-03, -5.75615e-07, 1.313877e-09, -8.768554e-13,
+      -1005.249, 6.034738]
+    - [3.697578, 6.135197e-04, -1.258842e-07, 1.775281e-11, -1.136435e-15,
+      -1233.93, 3.189166]
+    note: '121386'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 107.4
+    diameter: 3.458
+    polarizability: 1.6
+    rotational-relaxation: 3.8
+- name: H2O
+  composition: {H: 2, O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [200.0, 1000.0, 8000.0]
+    data:
+    - [3.386842, 3.474982e-03, -6.354696e-06, 6.968581e-09, -2.506588e-12,
+      -3.020811e+04, 2.590233]
+    - [2.672146, 3.056293e-03, -8.73026e-07, 1.200996e-10, -6.391618e-15,
+      -2.989921e+04, 6.862817]
+    note: '20387'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 572.4
+    diameter: 2.605
+    dipole: 1.844
+    rotational-relaxation: 4.0
+- name: H
+  composition: {H: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [200.0, 8000.0]
+    data:
+    - [2.5, 0.0, 0.0, 0.0, 0.0, 2.547163e+04, -0.4601176]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: atom
+    well-depth: 145.0
+    diameter: 2.05
+- name: O
+  composition: {O: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [200.0, 1000.0, 8000.0]
+    data:
+    - [2.946429, -1.638166e-03, 2.421032e-06, -1.602843e-09, 3.890696e-13,
+      2.914764e+04, 2.963995]
+    - [2.54206, -2.755062e-05, -3.102803e-09, 4.551067e-12, -4.368052e-16,
+      2.92308e+04, 4.920308]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: atom
+    well-depth: 80.0
+    diameter: 2.75
+- name: OH
+  composition: {O: 1, H: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [200.0, 1000.0, 8000.0]
+    data:
+    - [3.637266, 1.85091e-04, -1.676165e-06, 2.387203e-09, -8.431442e-13,
+      3606.782, 1.35886]
+    - [2.88273, 1.013974e-03, -2.276877e-07, 2.174684e-11, -5.126305e-16,
+      3886.888, 5.595712]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 80.0
+    diameter: 2.75
+- name: H2
+  composition: {H: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [200.0, 1000.0, 8000.0]
+    data:
+    - [3.298124, 8.249442e-04, -8.143015e-07, -9.475434e-11, 4.134872e-13,
+      -1012.521, -3.294094]
+    - [2.991423, 7.000644e-04, -5.633829e-08, -9.231578e-12, 1.582752e-15,
+      -835.034, -1.35511]
+    note: '121286'
+  transport:
+    model: gas
+    geometry: linear
+    well-depth: 38.0
+    diameter: 2.92
+    polarizability: 0.79
+    rotational-relaxation: 280.0
+- name: HO2
+  composition: {H: 1, O: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [200.0, 1000.0, 8000.0]
+    data:
+    - [2.979963, 4.996697e-03, -3.790997e-06, 2.354192e-09, -8.089024e-13,
+      176.2274, 9.222724]
+    - [4.072191, 2.131296e-03, -5.308145e-07, 6.112269e-11, -2.841165e-15,
+      -157.9727, 3.476029]
+    note: '20387'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 107.4
+    diameter: 3.458
+    rotational-relaxation: 1.0
+    note: '*'
+- name: H2O2
+  composition: {H: 2, O: 2}
+  thermo:
+    model: NASA7
+    temperature-ranges: [200.0, 1000.0, 8000.0]
+    data:
+    - [3.388754, 6.569226e-03, -1.485013e-07, -4.625806e-09, 2.471515e-12,
+      -1.766315e+04, 6.785363]
+    - [4.573167, 4.336136e-03, -1.474689e-06, 2.348904e-10, -1.431654e-14,
+      -1.800696e+04, 0.501137]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: nonlinear
+    well-depth: 107.4
+    diameter: 3.458
+    rotational-relaxation: 3.8
+- name: AR
+  composition: {Ar: 1}
+  thermo:
+    model: NASA7
+    temperature-ranges: [200.0, 8000.0]
+    data:
+    - [2.5, 0.0, 0.0, 0.0, 0.0, -745.375, 4.366001]
+    note: '120186'
+  transport:
+    model: gas
+    geometry: atom
+    well-depth: 136.5
+    diameter: 3.33
+
+reactions:
+- equation: H + OH => O + H2  # Reaction 1
+  rate-constant: {A: 8.43e+09, b: 1.0, Ea: 6954.5}
+- equation: O + H2 => H + OH  # Reaction 2
+  rate-constant: {A: 1.81e+10, b: 1.0, Ea: 8901.8}
+- equation: H + HO2 => H2 + O2  # Reaction 3
+  rate-constant: {A: 2.53e+13, b: 0.0, Ea: 695.5}
+- equation: H2 + O2 => H + HO2  # Reaction 4
+  rate-constant: {A: 5.48e+13, b: 0.0, Ea: 5.78217e+04}
+- equation: H + HO2 => OH + OH  # Reaction 5
+  rate-constant: {A: 2.53e+14, b: 0.0, Ea: 1887.7}
+- equation: OH + OH => H + HO2  # Reaction 6
+  rate-constant: {A: 1.2e+13, b: 0.0, Ea: 4.01374e+04}
+- equation: H + HO2 => O + H2O  # Reaction 7
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 993.5}
+- equation: O + H2O => H + HO2  # Reaction 8
+  rate-constant: {A: 1.05e+12, b: 0.45, Ea: 5.64308e+04}
+- equation: H + H2O2 => HO2 + H2  # Reaction 9
+  rate-constant: {A: 1.69e+12, b: 0.0, Ea: 3775.3}
+- equation: HO2 + H2 => H + H2O2  # Reaction 10
+  rate-constant: {A: 7.23e+11, b: 0.0, Ea: 1.86778e+04}
+- equation: H + H2O2 => OH + H2O  # Reaction 11
+  rate-constant: {A: 3.18e+14, b: 0.0, Ea: 8941.5}
+- equation: OH + H2O => H + H2O2  # Reaction 12
+  rate-constant: {A: 2.4e+14, b: 0.0, Ea: 8.04735e+04}
+- equation: OH + H2 => H + H2O  # Reaction 13
+  rate-constant: {A: 1.1e+09, b: 1.3, Ea: 3656.1}
+- equation: H + H2O => OH + H2  # Reaction 14
+  rate-constant: {A: 1.08e+10, b: 1.2, Ea: 1.90951e+04}
+- equation: OH + OH => H2 + O2  # Reaction 15
+  rate-constant: {A: 6.57e+10, b: 0.26, Ea: 2.92089e+04}
+- equation: H2 + O2 => OH + OH  # Reaction 16
+  rate-constant: {A: 1.69e+13, b: 0.0, Ea: 4.80854e+04}
+- equation: OH + OH => O + H2O  # Reaction 17
+  rate-constant: {A: 6.02e+07, b: 1.3, Ea: 0.0}
+- equation: O + H2O => OH + OH  # Reaction 18
+  rate-constant: {A: 1.93e+09, b: 1.16, Ea: 1.7426e+04}
+- equation: OH + HO2 => H2O + O2  # Reaction 19
+  rate-constant: {A: 5.0e+13, b: 0.0, Ea: 999.5}
+- equation: H2O + O2 => OH + HO2  # Reaction 20
+  rate-constant: {A: 1.43e+14, b: 0.17, Ea: 7.33203e+04}
+- equation: OH + H2O2 => HO2 + H2O  # Reaction 21
+  rate-constant: {A: 1.02e+13, b: 0.0, Ea: 1808.2}
+- equation: HO2 + H2O => OH + H2O2  # Reaction 22
+  rate-constant: {A: 2.83e+13, b: 0.0, Ea: 3.27855e+04}
+- equation: HO2 + H2 => OH + H2O  # Reaction 23
+  rate-constant: {A: 7.23e+11, b: 0.0, Ea: 1.86977e+04}
+- equation: OH + H2O => HO2 + H2  # Reaction 24
+  rate-constant: {A: 8.01e+09, b: 0.43, Ea: 7.19294e+04}
+- equation: HO2 + HO2 => H2O2 + O2  # Reaction 25
+  rate-constant: {A: 1.81e+13, b: 0.0, Ea: 993.5}
+- equation: H2O2 + O2 => HO2 + HO2  # Reaction 26
+  rate-constant: {A: 9.46e+14, b: -0.38, Ea: 4.3714e+04}
+- equation: O + OH => H + O2  # Reaction 27
+  rate-constant: {A: 1.64e+12, b: 0.28, Ea: -160.9}
+- equation: H + O2 => O + OH  # Reaction 28
+  rate-constant: {A: 2.23e+14, b: 0.0, Ea: 1.67902e+04}
+- equation: O + HO2 => OH + O2  # Reaction 29
+  rate-constant: {A: 5.01e+13, b: 0.0, Ea: 999.5}
+- equation: OH + O2 => O + HO2  # Reaction 30
+  rate-constant: {A: 1.33e+13, b: 0.18, Ea: 5.60334e+04}
+- equation: O + H2O2 => H2O + O2  # Reaction 31
+  rate-constant: {A: 8.43e+11, b: 0.0, Ea: 4212.4}
+- equation: H2O + O2 => O + H2O2  # Reaction 32
+  rate-constant: {A: 3.43e+10, b: 0.52, Ea: 8.90176e+04}
+- equation: O + H2O2 => OH + HO2  # Reaction 33
+  rate-constant: {A: 8.43e+11, b: 0.0, Ea: 4232.3}
+- equation: OH + HO2 => O + H2O2  # Reaction 34
+  rate-constant: {A: 1.25e+09, b: 0.64, Ea: 1.6353e+04}
+- equation: H2 + M => H + H + M  # Reaction 35
+  type: three-body
+  rate-constant: {A: 2.23e+14, b: 0.0, Ea: 9.59721e+04}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: H2O + M => H + OH + M  # Reaction 36
+  type: three-body
+  rate-constant: {A: 3.49e+15, b: 0.0, Ea: 1.051123e+05}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: HO2 + M => H + O2 + M  # Reaction 37
+  type: three-body
+  rate-constant: {A: 2.11e+15, b: 0.0, Ea: 4.5701e+04}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: H2O2 + M => OH + OH + M  # Reaction 38
+  type: three-body
+  rate-constant: {A: 1.2e+17, b: 0.0, Ea: 4.55023e+04}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: OH + M => O + H + M  # Reaction 39
+  type: three-body
+  rate-constant: {A: 1.4e+14, b: 0.21, Ea: 1.01337e+05}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: HO2 + M => O + OH + M  # Reaction 40
+  type: three-body
+  rate-constant: {A: 6.63e+19, b: -0.43, Ea: 6.39814e+04}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: O2 + M => O + O + M  # Reaction 41
+  type: three-body
+  rate-constant: {A: 1.81e+18, b: -1.0, Ea: 1.180278e+05}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: H + H + M => H2 + M  # Reaction 42
+  type: three-body
+  rate-constant: {A: 6.53e+17, b: -1.0, Ea: 0.0}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: H + OH + M => H2O + M  # Reaction 43
+  type: three-body
+  rate-constant: {A: 2.25e+22, b: -2.0, Ea: 0.0}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: H + O2 + M => HO2 + M  # Reaction 44
+  type: three-body
+  rate-constant: {A: 1.5e+15, b: 0.0, Ea: -993.5}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: OH + OH + M => H2O2 + M  # Reaction 45
+  type: three-body
+  rate-constant: {A: 9.07e+14, b: 0.0, Ea: -5066.9}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: O + H + M => OH + M  # Reaction 46
+  type: three-body
+  rate-constant: {A: 3.0e+19, b: -1.0, Ea: 0.0}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: O + OH + M => HO2 + M  # Reaction 47
+  type: three-body
+  rate-constant: {A: 1.02e+17, b: 0.0, Ea: 0.0}
+  efficiencies: {O2: 0.4, H2O: 6.5}
+- equation: O + O + M => O2 + M  # Reaction 48
+  type: three-body
+  rate-constant: {A: 1.89e+13, b: 0.0, Ea: -1788.3}
+  efficiencies: {O2: 0.4, H2O: 6.5}

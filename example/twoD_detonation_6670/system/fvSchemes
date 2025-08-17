@@ -1,0 +1,62 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fluxScheme          HLLCP;//Tadmor;
+
+ddtSchemes
+{
+    default         Euler;
+}
+
+timeScheme      RK2SSP; //RK3SSP;
+
+gradSchemes
+{
+	default         Gauss linear;
+}
+
+divSchemes
+{
+    default         		none;
+	div(tauMC)				Gauss linear;
+	div(hDiffCorrFlux)    	Gauss cubic;
+	div(phi,Yi_h)			Gauss vanLeer;
+}
+
+laplacianSchemes
+{
+	default			Gauss linear uncorrected;	
+}
+
+interpolationSchemes
+{
+    default				linear;
+	reconstruct(rho)	Minmod;
+	reconstruct(U)		MinmodV;
+	reconstruct(T)		Minmod;
+	reconstruct(p)		Minmod;
+	reconstruct(c)		Minmod;
+	reconstruct(Yi)	Minmod;
+}
+
+snGradSchemes
+{
+	default				uncorrected;
+}
+
+
+// ************************************************************************* //

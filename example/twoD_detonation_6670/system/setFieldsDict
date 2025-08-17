@@ -1,0 +1,85 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \    /   O peration     | Version:  1.7.1                                 |
+|   \  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setFieldsDict;
+}
+// * * * * created with automaticSetFields_tfc_zu_Grad3s_03.c * * * * * * * *  //
+
+ regions
+ (
+  /*
+	cylinderToCell
+	{
+		p1 (0.0 0.015 -0.1); 
+		p2 (0.0 0.015 0.1); 
+		radius 0.015;
+		fieldValues
+		(
+		 volScalarFieldValue T    7450
+		 volScalarFieldValue p    1000000
+		
+		);
+	}
+
+	cylinderToCell
+	{
+		p1 (0.0 0.045 -0.1); 
+		p2 (0.0 0.045 0.1); 
+		radius 0.015;
+		fieldValues
+		(
+		 volScalarFieldValue T    7450
+		 volScalarFieldValue p    1000000
+		
+		);
+	}
+*/
+
+    boxToCell
+    {
+        box (0 -0.0119 -0.001) (0.01 -0.0019 0.001);
+        fieldValues
+        (
+            volScalarFieldValue T   4000
+	    volScalarFieldValue p   500000
+        );
+    }
+    boxToCell
+    {
+        box (0 0.0019 -0.001) (0.01 0.0119 0.001);
+        fieldValues
+        (
+            volScalarFieldValue T   4000
+	    volScalarFieldValue p   500000
+        );
+    }
+    boxToCell
+    {
+        box (0 0.0189 -0.001) (0.01 0.0289 0.001);
+        fieldValues
+        (
+            volScalarFieldValue T   4000
+	    volScalarFieldValue p   500000
+        );
+    }
+    boxToCell
+    {
+        box (0 -0.0289 -0.001) (0.01 -0.0189 0.001);
+        fieldValues
+        (
+            volScalarFieldValue T   4000
+	    volScalarFieldValue p   500000
+        );
+    }
+
+	
+ );
