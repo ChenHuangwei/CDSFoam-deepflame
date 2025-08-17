@@ -1,1 +1,0 @@
-../Kurganov/Kurganov.C
