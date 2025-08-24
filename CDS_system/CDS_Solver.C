@@ -223,7 +223,8 @@ Foam::CDS_Solver::CDS_Solver
             IOobject::NO_READ,
             IOobject::AUTO_WRITE
         ),
-        thermo_.rho()
+        mesh_,
+        dimensionedScalar("0", dimless, 0.0)
     ),
     error  // AMR need
     (
